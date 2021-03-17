@@ -6,6 +6,24 @@
         <p>Paid value: {{payment.paidValue}}$</p>
         <p>Payment Date: {{payment.paymentDate}}</p>
         <button class="btn btn-primary" (click)="open(editPayment)">Edit</button>
+        <br> <br>
+        <div *ngIf="compareDate(payment.paymentDate)">
+            <div *ngIf="payment.value <= payment.paidValue" class="col-3 alert alert-success">
+                Paid successfully
+            </div>
+            <div *ngIf="payment.value > payment.paidValue" class="col-3 alert alert-danger">
+                Overdue
+            </div>
+        </div>
+        <div *ngIf="!compareDate(payment.paymentDate)">
+            <div *ngIf="payment.value <= payment.paidValue" class="col-3 alert alert-success">
+                Paid successfully
+            </div>
+            <div *ngIf="payment.value > payment.paidValue" class="col-3 alert alert-warning">
+                Not paid yet
+            </div>
+        </div>
+        
         <hr/><br/>
 
         <ng-template #editPayment let-modal>
@@ -20,23 +38,23 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label>Value of Payment </label>
-                        <input type="text" class="form-control" [(ngModel)]="payment.value" name="value" 
+                        <input type="text" class="form-control" [(ngModel)]="editPays[i].value" name="value" 
                         formControlName="value">
                     </div>
                     <div class="form-group">
                         <label>Paid Value </label>
-                        <input type="text" class="form-control" [(ngModel)]="payment.paidValue" name="paidValue"
+                        <input type="text" class="form-control" [(ngModel)]="editPays[i].paidValue" name="paidValue"
                          formControlName="paidValue">
                     </div>
                     <div class="form-group">
                         <label>Payment Date </label>
-                        <input type="date" class="form-control" [(ngModel)]="payment.paymentDate" name="date" 
+                        <input type="date" class="form-control" [(ngModel)]="editPays[i].paymentDate" name="date" 
                         formControlName="date">
                     </div>
                 </div>
             </form>
             <br>
-            <button class="btn btn-success" [disabled]='!payFrom.valid'>Save</button>
+            <button class="btn btn-success" (click)="update(editPays[i], i)" [disabled]='!payFrom.valid'>Save</button>
         </ng-template>
     </div>
 </div>

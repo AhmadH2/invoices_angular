@@ -1,3 +1,3 @@
 export class Payment {
-    constructor(public invoiceId: string, public value: number, public paidValue: number, public paymentDate:string){}
+    constructor(public id: string, public invoiceId: string, public value: number, public paidValue: number, public paymentDate:string){}
 }
