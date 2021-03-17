@@ -1,8 +1,13 @@
+<br>
 <div class="col-10" *ngFor="let inv of invoices">
-    <p>Customer Name: {{inv.customerName}}</p>
+    <h3>Customer Name: {{inv.customerName}}</h3>
     <p>Description: {{inv.descr}}</p>
     <p>Invoce Value: ${{inv.value}}</p>
+    <p>Total Payments: ${{totalPayments(inv.id)}}</p>
+    <p>Remaining: ${{inv.value - totalPayments(inv.id)}}</p>
     <p>Date: {{inv.creationDate}}</p>
+
     <a routerLink="payments/{{inv.id}}" routerLinkActive="active" 
-    class="btn btn-info">{{inv.customerName}}</a>
+    class="btn btn-warning">Show Payments for this Invoice</a>
+    <hr><br>
 </div>

@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { InvoicesListComponent } from './invoices-list/invoices-list.component';
 import { PaymentsListComponent } from './payments-list/payments-list.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NavComponent } from './nav/nav.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     InvoicesListComponent,
-    PaymentsListComponent
+    PaymentsListComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,

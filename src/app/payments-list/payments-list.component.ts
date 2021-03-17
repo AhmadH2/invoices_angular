@@ -19,7 +19,7 @@ export class PaymentsListComponent implements OnInit {
   editPays: any;
 
   constructor(private invoicesService: InvoicesService, 
-    private route: ActivatedRoute, private modalService: NgbModal) { }
+    private route: ActivatedRoute, private location: Location, private modalService: NgbModal) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(
@@ -66,6 +66,10 @@ export class PaymentsListComponent implements OnInit {
     let currentDate = new Date(Date.now())
     console.log(d)
     return currentDate > d;
+  }
+
+  back() {
+    this.location.back()
   }
 
 }

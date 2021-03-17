@@ -4,7 +4,6 @@ import { InvoicesListComponent } from './invoices-list/invoices-list.component';
 import { PaymentsListComponent } from './payments-list/payments-list.component';
 
 const routes: Routes = [
-  { path: "invoices", component: InvoicesListComponent },
   { path: "payments/:id", component: PaymentsListComponent },
   { path: "", component: InvoicesListComponent }
 ];
