@@ -1,5 +1,7 @@
-<p>invoices-list works!</p>
-
-<p *ngFor="let inv of invoices">
+<div class="col-10" *ngFor="let inv of invoices">
+    <p>Customer Name: {{inv.customerName}}</p>
+    <p>Description: {{inv.descr}}</p>
+    <p>Invoce Value: ${{inv.value}}</p>
+    <p>Date: {{inv.creationDate}}</p>
     <a routerLink="payments/{{inv.id}}" routerLinkActive="active" class="btn btn-info">{{inv.customerName}}</a>
-</p>
+</div>
